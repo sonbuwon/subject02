@@ -22,7 +22,7 @@
 		class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-bottom-dark"
 		data-bs-theme="dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/Subject02/a02/index.jsp">sonbuwon7backend</a>
+			<a class="navbar-brand" href="/Subject02/sbwboard?do=main">sonbuwon7backend</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarText"
 				aria-controls="navbarText" aria-expanded="false"
@@ -32,9 +32,9 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/Subject02/a02/index.jsp">Home</a></li>
+						aria-current="page" href="/Subject02/sbwboard?do=main">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/a02/requestList.jsp">List</a></li>
+						href="/Subject02/sbwboard?do=list">List</a></li>
 				</ul>
 				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
 			</div>
