@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홈 화면</title>
+<title>로그인</title>
+</head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -15,7 +16,6 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 	crossorigin="anonymous"></script>
-</head>
 <body>
 	<!-- navbar -->
 	<nav
@@ -31,11 +31,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/Subject02/sbwboard?do=main">홈으로</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page"
+						href="/Subject02/sbwboard?do=main">홈으로</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/sbwboard?do=list">요구사항 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/Subject02/a02/login.jsp">로그인</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						href="/Subject02/a02/login.jsp">로그인</a></li>
 				</ul>
 				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
 			</div>
@@ -44,19 +45,21 @@
 
 	<!-- Main -->
 	<div class="container">
-		<div class="d-flex justify-content-center mt-3 mb-2">
+		<div class="d-flex justify-content-center mt-3 mb-1">
 			<h3>
-				<b>??? 님 요구사항을 작성해주세요</b>
+				<b>로그인</b>
 			</h3>
 		</div>
-		<form action="/Subject02/sbwboard?do=add" method="post">
-			<div class="form-floating">
-				<textarea class="form-control" placeholder="Leave a comment here"
-					id="floatingTextarea2" style="height: 300px" name="content"></textarea>
-				<label for="floatingTextarea2">Comments</label>
+		<form>
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">@</span> <input
+					type="text" class="form-control" placeholder="Username"
+					aria-label="Username" aria-describedby="basic-addon1">
 			</div>
-			<div class="d-flex justify-content-end my-3">
-				<button type="submit" class="btn btn-danger me-1">작성하기</button>
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">@</span> <input
+					type="text" class="form-control" placeholder="Username"
+					aria-label="Username" aria-describedby="basic-addon1">
 			</div>
 		</form>
 	</div>
