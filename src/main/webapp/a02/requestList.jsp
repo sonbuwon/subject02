@@ -32,9 +32,9 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/sbwboard?do=main">홈으로</a></li>
+						href="/Subject02/main">홈으로</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						href="/Subject02/sbwboard?do=list">요구사항 목록</a></li>
+						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/Subject02/a02/login.jsp">로그인</a></li>
 				</ul>
 				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
@@ -50,10 +50,10 @@
 			</h3>
 		</div>
 		<ul class="list-group m-3">
-			<c:forEach var="cs" items="${ css }" varStatus="status">
+			<c:forEach var="cs" items="${ list }" varStatus="status">
 				<li
 					class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-					[${status.count}] ${cs.content}</li>
+					[${status.count}] ${cs.content} ${cs.date}</li>
 			</c:forEach>
 		</ul>
 	</div>

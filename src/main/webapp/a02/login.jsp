@@ -32,9 +32,9 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/sbwboard?do=main">홈으로</a></li>
+						href="/Subject02/main">홈으로</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/sbwboard?do=list">요구사항 목록</a></li>
+						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						href="/Subject02/a02/login.jsp">로그인</a></li>
 				</ul>

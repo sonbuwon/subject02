@@ -32,9 +32,9 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/Subject02/sbwboard?do=main">홈으로</a></li>
+						aria-current="page" href="/Subject02/main">홈으로</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/sbwboard?do=list">요구사항 목록</a></li>
+						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/Subject02/a02/login.jsp">로그인</a></li>
 				</ul>
 				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
@@ -49,7 +49,7 @@
 				<b>??? 님 요구사항을 작성해주세요</b>
 			</h3>
 		</div>
-		<form action="/Subject02/sbwboard?do=add" method="post">
+		<form action="/Subject02/main" method="post">
 			<div class="form-floating">
 				<textarea class="form-control" placeholder="Leave a comment here"
 					id="floatingTextarea2" style="height: 300px" name="content"></textarea>
