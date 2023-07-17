@@ -27,10 +27,12 @@ public class ContentsDAO {
 	// 요구사항 추가
 	public void insertOne(Contents n) throws Exception {
 		Connection conn = open();
-		String sql = "insert into contents(content, date) values(?, CURRENT_TIMESTAMP())";
+		String sql = "insert into contents(content, date, author) values(?, CURRENT_TIMESTAMP(), ?)";
+		//String sql = "insert into contents(content, date, author) values(?, FORMATDATETIME(now(), 'yyyy-MM-dd hh:mm:ss'), ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			pstmt.setString(1, n.getContent());
+			pstmt.setString(2, n.getAuthor());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,17 +81,49 @@ public class ContentsDAO {
 		Connection conn = open();
 		List<Contents> css = new ArrayList<>();
 		
-		String sql = "select content, date from contents";
+		String sql = "select id, content, date, author from contents";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Contents cs = new Contents();
+				cs.setId(rs.getInt("id"));
 				cs.setContent(rs.getString("content"));
 				cs.setDate(rs.getString("date"));
+				cs.setAuthor(rs.getString("author"));
 				css.add(cs);
 			}
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pstmt.close();
+			conn.close();
+		}
+		return css;
+	}
+	
+	// 요구사항 검색
+	public List<Contents> searchLike(String sc) throws Exception {
+		Connection conn = open();
+		List<Contents> css = new ArrayList<>();
+		
+		// Like 바인딩 하는 문법을 주의해서
+		String sql = "select id, content, date, author from contents where content like ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try {
+			System.out.println(pstmt);
+			// 봐야한다
+			pstmt.setString(1, "%" + sc + "%");
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Contents cs = new Contents();
+				cs.setId(rs.getInt("id"));
+				cs.setContent(rs.getString("content"));
+				cs.setDate(rs.getString("date"));
+				cs.setAuthor(rs.getString("author"));
+				css.add(cs);
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

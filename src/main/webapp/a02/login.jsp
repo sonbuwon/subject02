@@ -22,7 +22,7 @@
 		class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-bottom-dark"
 		data-bs-theme="dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/Subject02/sbwboard?do=main">sonbuwon7backend</a>
+			<a class="navbar-brand" href="/Subject02/board/main">sonbuwon7backend</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarText"
 				aria-controls="navbarText" aria-expanded="false"
@@ -32,36 +32,57 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/main">홈으로</a></li>
+						href="/Subject02/board/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/list">요구사항 목록</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						href="/Subject02/a02/login.jsp">로그인</a></li>
+						href="/Subject02/board/list">요구사항 목록</a></li>
+					<c:if test="${empty loginInfo}">
+						<li class="nav-item"><a class="nav-link active"
+						href="/Subject02/board/login">로그인</a></li>
+					</c:if>
+					<!--
+					<c:if test="${not empty loginInfo}">
+						<li class="nav-item active"><a class="nav-link"
+						href="#">로그아웃</a></li>
+					</c:if>
+					-->
 				</ul>
-				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
+				<c:if test="${empty loginInfo}">
+					<span class="navbar-text me-3">요구사항 작성은 로그인이 필요합니다. </span>
+				</c:if>
+				<c:if test="${not empty loginInfo}">
+					<span class="navbar-text me-3">${loginInfo.uname} 님 환영합니다.</span>
+				</c:if>
 			</div>
 		</div>
 	</nav>
 
 	<!-- Main -->
 	<div class="container">
-		<div class="d-flex justify-content-center mt-3 mb-1">
+		<div>
+			<c:if test="${param.result=='error'}">
+				<h3>로그인 실패</h3>
+			</c:if>
+		</div>
+		
+		<div class="d-flex justify-content-center mt-5 mb-1">
 			<h3>
 				<b>로그인</b>
 			</h3>
 		</div>
-		<form>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1">@</span> <input
-					type="text" class="form-control" placeholder="Username"
-					aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1">@</span> <input
-					type="text" class="form-control" placeholder="Username"
-					aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-		</form>
+		
+		<div class="container mt-3" style="width: 18rem;">
+			<form action="/Subject02/board/login" method="post">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="아이디"
+						aria-label="Username" aria-describedby="basic-addon1" name="uid" autocomplete="off">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="비밀번호"
+						aria-label="Username" aria-describedby="basic-addon1" name="upw" autocomplete="off">
+				</div>
+				<button type="submit" class="btn btn-secondary">로그인</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

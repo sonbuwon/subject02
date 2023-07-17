@@ -10,8 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/main")
+@WebServlet("/board/main")
 public class ContentsMainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,12 +37,14 @@ public class ContentsMainController extends HttpServlet {
 		Contents contents = new Contents();
 		contents.setContent(request.getParameter("content"));
 		contents.setDate(LocalDateTime.now().toString());
+		contents.setAuthor(request.getParameter("author"));
 		
+		// 요구사항 등록
 		try {
 			service.register(contents);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.sendRedirect("/Subject02/list");
+		response.sendRedirect("/Subject02/board/list");
 	}
 }
