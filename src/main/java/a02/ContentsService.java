@@ -15,6 +15,11 @@ public class ContentsService {
 		List<Contents> cList = dao.getAll();
 		return cList;
 	}
+	// 검색 목록 출력
+	public List<Contents> searchList(String sc) throws Exception {
+		List<Contents> sList = dao.searchLike(sc);
+		return sList;
+	}
 	
 	// 등록
 	public void register(Contents contents) throws Exception {
