@@ -70,6 +70,8 @@
 		</div>
 
 		<form action="/Subject02/board/main" method="post">
+			<!-- 작성자 딱 대 -->
+			<input type="hidden" name="author" value="${loginInfo.uname}" readonly>
 			<div class="form-floating">
 				<textarea class="form-control" placeholder="Leave a comment here"
 					id="floatingTextarea2" style="height: 300px" name="content"></textarea>

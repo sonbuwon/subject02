@@ -37,6 +37,7 @@ public class ContentsMainController extends HttpServlet {
 		Contents contents = new Contents();
 		contents.setContent(request.getParameter("content"));
 		contents.setDate(LocalDateTime.now().toString());
+		contents.setAuthor(request.getParameter("author"));
 		
 		// 요구사항 등록
 		try {

@@ -75,14 +75,14 @@
 			</form>
 		</div>
 
-		<div class="d-flex justify-content-center mt-5 mb-1">
-			<h3>
-				<b>요구사항 목록</b>
-			</h3>
-		</div>
-
 		<div class="container">
-			<div class="d-flex justify-content-center mt-5">
+			<div class="d-flex justify-content-center mt-5 mb-1">
+				<h3>
+					<b>요구사항 목록</b>
+				</h3>
+			</div>
+		
+			<div class="d-flex justify-content-center mt-1">
 				<c:if test="${empty list}">
 					<h3>작성된 요구사항이 없습니다.</h3>
 				</c:if>
@@ -90,18 +90,38 @@
 			<c:if test="${not empty list}">
 				<ul class="list-group m-3">
 					<c:forEach var="cs" items="${ list }" varStatus="status">
-						<li
-							class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-							<span><span class="badge bg-dark p-2">${status.count}</span>
-								${cs.content} -${cs.date}</span> <!-- 삭제 버튼 --> <c:if
-								test="${loginInfo.uname eq 'Admin'}">
-								<form action="/Subject02/board/remove" method="post">
-									<input type="hidden" name="id" value="${cs.id}" readonly>
+						<li class="list-group-item list-group-item-action">
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="me-auto badge bg-dark p-2">
 									<div>
-										<button class="btn btn-danger" type="submit">X</button>
+										${status.count}
 									</div>
-								</form>
-							</c:if>
+								</div>
+								<div class="flex-grow-1 mx-2">
+									${cs.content}
+								</div>
+								<div class="badge text-dark p-2 text-start">
+									<div class="mb-1">
+										${cs.author}
+									</div>
+									<div>
+										${cs.date}
+									</div>
+								</div>
+								<div>
+									<!-- 삭제 버튼 --> 
+									<c:if
+										test="${loginInfo.uname eq 'Admin'}">
+										<form action="/Subject02/board/remove" method="post">
+											<input type="hidden" name="id" value="${cs.id}" readonly>
+											<div>
+												<button class="btn btn-danger" type="submit">X</button>
+											</div>
+										</form>
+									</c:if>
+								</div>
+							</div>
+							
 						</li>
 					</c:forEach>
 				</ul>

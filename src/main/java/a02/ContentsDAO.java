@@ -80,7 +80,7 @@ public class ContentsDAO {
 		Connection conn = open();
 		List<Contents> css = new ArrayList<>();
 		
-		String sql = "select id, content, date from contents";
+		String sql = "select id, content, date, author from contents";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			ResultSet rs = pstmt.executeQuery();
@@ -89,6 +89,7 @@ public class ContentsDAO {
 				cs.setId(rs.getInt("id"));
 				cs.setContent(rs.getString("content"));
 				cs.setDate(rs.getString("date"));
+				cs.setAuthor(rs.getString("author"));
 				css.add(cs);
 			}
 
@@ -107,7 +108,7 @@ public class ContentsDAO {
 		List<Contents> css = new ArrayList<>();
 		
 		// Like 바인딩 하는 문법을 주의해서
-		String sql = "select id, content, date from contents where content like ?";
+		String sql = "select id, content, date, author from contents where content like ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			System.out.println(pstmt);
@@ -119,6 +120,7 @@ public class ContentsDAO {
 				cs.setId(rs.getInt("id"));
 				cs.setContent(rs.getString("content"));
 				cs.setDate(rs.getString("date"));
+				cs.setAuthor(rs.getString("author"));
 				css.add(cs);
 			} 
 		} catch (Exception e) {

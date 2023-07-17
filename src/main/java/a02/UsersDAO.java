@@ -35,8 +35,8 @@ public class UsersDAO {
 			
 			pstmt.setString(1, uid);
 			pstmt.setString(2, upw);
-			
 			ResultSet rs = pstmt.executeQuery();
+			
 			rs.next();
 			
 			user.setUid(rs.getString("uid"));
@@ -51,5 +51,4 @@ public class UsersDAO {
 		}
 		return user;
 	}
-	
 }
