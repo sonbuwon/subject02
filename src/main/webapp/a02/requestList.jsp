@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/main">홈으로</a></li>
+						href="/Subject02/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/Subject02/login">로그인</a></li>
@@ -52,7 +52,7 @@
 		<ul class="list-group m-3">
 			<c:forEach var="cs" items="${ list }" varStatus="status">
 				<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-					[${status.count}] ${cs.content} ${cs.date}
+					<span>[${status.count}] ${cs.content} -${cs.date}</span>
 					<!-- 삭제 버튼 -->
 					<form action="/Subject02/remove" method="post">
 						<input type="hidden" name="id" value="${cs.id}" readonly>

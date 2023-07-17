@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/main">홈으로</a></li>
+						href="/Subject02/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link active"
@@ -45,22 +45,24 @@
 
 	<!-- Main -->
 	<div class="container">
-		<div class="d-flex justify-content-center mt-3 mb-1">
+		<div class="d-flex justify-content-center mt-5 mb-1">
 			<h3>
 				<b>로그인</b>
 			</h3>
 		</div>
-		<form>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Username"
-					aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Password"
-					aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			<button type="button">로그인</button>
-		</form>
+		<div class="container mt-3" style="width: 18rem;">
+			<form>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Username"
+						aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Password"
+						aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+				<button type="button" class="btn btn-secondary">로그인</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/Subject02/main">홈으로</a></li>
+						aria-current="page" href="/Subject02/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/Subject02/login">로그인</a></li>
@@ -56,7 +56,7 @@
 				<label for="floatingTextarea2">Comments</label>
 			</div>
 			<div class="d-flex justify-content-end my-3">
-				<button type="submit" class="btn btn-danger me-1">작성하기</button>
+				<button type="submit" class="btn btn-secondary me-1">작성하기</button>
 			</div>
 		</form>
 	</div>
