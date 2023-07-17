@@ -79,12 +79,13 @@ public class ContentsDAO {
 		Connection conn = open();
 		List<Contents> css = new ArrayList<>();
 		
-		String sql = "select content, date from contents";
+		String sql = "select id, content, date from contents";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Contents cs = new Contents();
+				cs.setId(rs.getInt("id"));
 				cs.setContent(rs.getString("content"));
 				cs.setDate(rs.getString("date"));
 				css.add(cs);

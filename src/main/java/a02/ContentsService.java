@@ -18,4 +18,8 @@ public class ContentsService {
 	public void register(Contents contents) throws Exception {
 		dao.insertOne(contents);
 	}
+	
+	public void remove(int id) throws Exception {
+		dao.deleteOne(id);
+	}
 }

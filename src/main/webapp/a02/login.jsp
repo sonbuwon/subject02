@@ -22,7 +22,7 @@
 		class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-bottom-dark"
 		data-bs-theme="dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/Subject02/sbwboard?do=main">sonbuwon7backend</a>
+			<a class="navbar-brand" href="/Subject02/main">sonbuwon7backend</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarText"
 				aria-controls="navbarText" aria-expanded="false"
@@ -36,7 +36,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						href="/Subject02/a02/login.jsp">로그인</a></li>
+						href="/Subject02/login">로그인</a></li>
 				</ul>
 				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
 			</div>
@@ -52,15 +52,14 @@
 		</div>
 		<form>
 			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1">@</span> <input
-					type="text" class="form-control" placeholder="Username"
+				<input type="text" class="form-control" placeholder="Username"
 					aria-label="Username" aria-describedby="basic-addon1">
 			</div>
 			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1">@</span> <input
-					type="text" class="form-control" placeholder="Username"
+				<input type="text" class="form-control" placeholder="Password"
 					aria-label="Username" aria-describedby="basic-addon1">
 			</div>
+			<button type="button">로그인</button>
 		</form>
 	</div>
 </body>
