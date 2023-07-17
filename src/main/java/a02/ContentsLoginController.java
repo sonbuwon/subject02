@@ -41,11 +41,7 @@ public class ContentsLoginController extends HttpServlet {
 
 			session.setAttribute("loginInfo", user);
 			
-			if(session.getAttribute("loginInfo") != null) {
-				response.sendRedirect("/Subject02/board/main");
-			} else {
-				response.sendRedirect("/Subject02/board/login");
-			}			
+			response.sendRedirect("/Subject02/board/main");			
 
 		} catch (Exception e) {
 			e.printStackTrace();

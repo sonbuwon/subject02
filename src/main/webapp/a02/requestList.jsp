@@ -49,7 +49,7 @@
 					-->
 				</ul>
 				<c:if test="${empty loginInfo}">
-					<span class="navbar-text me-3">본 홈페이지의 모든 활동은 로그인이 필요합니다. </span>
+					<span class="navbar-text me-3">요구사항 작성은 로그인이 필요합니다. </span>
 				</c:if>
 				<c:if test="${not empty loginInfo}">
 					<span class="navbar-text me-3">${loginInfo.uname} 님 환영합니다.</span>
@@ -98,7 +98,7 @@
 								<form action="/Subject02/board/remove" method="post">
 									<input type="hidden" name="id" value="${cs.id}" readonly>
 									<div>
-										<button class="btn btn-secondary" type="submit">X</button>
+										<button class="btn btn-danger" type="submit">X</button>
 									</div>
 								</form>
 							</c:if>
@@ -108,11 +108,13 @@
 			</c:if>
 		</div>
 
-		<div class="container d-flex justify-content-end">
-			<form action="/Subject02/board/logout" method="post">
-				<button type="submit" class="btn btn-outline-secondary me-3">로그아웃</button>
-			</form>
-		</div>
+		<c:if test="${not empty loginInfo}">
+			<div class="container d-flex justify-content-end">
+				<form action="/Subject02/board/logout" method="post">
+					<button type="submit" class="btn btn-outline-secondary me-3">로그아웃</button>
+				</form>
+			</div>
+		</c:if>
 	</div>
 </body>
 </html>

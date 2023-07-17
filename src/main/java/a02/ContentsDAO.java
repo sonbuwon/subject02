@@ -27,10 +27,11 @@ public class ContentsDAO {
 	// 요구사항 추가
 	public void insertOne(Contents n) throws Exception {
 		Connection conn = open();
-		String sql = "insert into contents(content, date) values(?, CURRENT_TIMESTAMP())";
+		String sql = "insert into contents(content, date, author) values(?, CURRENT_TIMESTAMP(), ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			pstmt.setString(1, n.getContent());
+			pstmt.setString(2, n.getAuthor());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

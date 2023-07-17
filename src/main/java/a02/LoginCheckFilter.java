@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter({"/board/main", "/board/list"})
+@WebFilter({"/board/main"})
 public class LoginCheckFilter extends HttpFilter implements Filter {
-       
+	private static final long serialVersionUID = 1L;   
+	
     @Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 

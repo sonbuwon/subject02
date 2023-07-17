@@ -46,7 +46,7 @@
 					-->
 				</ul>
 				<c:if test="${empty loginInfo}">
-					<span class="navbar-text me-3">본 홈페이지의 모든 활동은 로그인이 필요합니다. </span>
+					<span class="navbar-text me-3">요구사항 작성은 로그인이 필요합니다. </span>
 				</c:if>
 				<c:if test="${not empty loginInfo}">
 					<span class="navbar-text me-3">${loginInfo.uname} 님 환영합니다.</span>

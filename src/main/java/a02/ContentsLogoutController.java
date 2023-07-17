@@ -25,6 +25,8 @@ public class ContentsLogoutController extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		session.removeAttribute("loginInfo");
+		session.invalidate();
+		
 		response.sendRedirect("/Subject02/board/login");
 	}
 }

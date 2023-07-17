@@ -35,9 +35,10 @@ public class UsersDAO {
 			
 			pstmt.setString(1, uid);
 			pstmt.setString(2, upw);
-			ResultSet rs = pstmt.executeQuery();
 			
+			ResultSet rs = pstmt.executeQuery();
 			rs.next();
+			
 			user.setUid(rs.getString("uid"));
 			user.setUpw(rs.getString("upw"));
 			user.setUname(rs.getString("uname"));
