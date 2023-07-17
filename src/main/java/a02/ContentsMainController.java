@@ -10,8 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/main")
+@WebServlet("/board/main")
 public class ContentsMainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +26,7 @@ public class ContentsMainController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		
 		request.getRequestDispatcher("/a02/index.jsp").forward(request, response);
 	}
 	
@@ -36,11 +38,12 @@ public class ContentsMainController extends HttpServlet {
 		contents.setContent(request.getParameter("content"));
 		contents.setDate(LocalDateTime.now().toString());
 		
+		// 요구사항 등록
 		try {
 			service.register(contents);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.sendRedirect("/Subject02/list");
+		response.sendRedirect("/Subject02/board/list");
 	}
 }

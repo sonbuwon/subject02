@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/search")
+@WebServlet("/board/search")
 public class ContentsSearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

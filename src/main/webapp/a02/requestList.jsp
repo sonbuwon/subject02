@@ -23,7 +23,7 @@
 		class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-bottom-dark"
 		data-bs-theme="dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/Subject02/main">sonbuwon7backend</a>
+			<a class="navbar-brand" href="/Subject02/board/main">sonbuwon7backend</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarText"
 				aria-controls="navbarText" aria-expanded="false"
@@ -33,11 +33,11 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/main">홈</a></li>
+						href="/Subject02/board/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						href="/Subject02/list">요구사항 목록</a></li>
+						href="/Subject02/board/list">요구사항 목록</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/login">로그인</a></li>
+						href="/Subject02/board/login">로그인</a></li>
 				</ul>
 				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
 			</div>
@@ -80,7 +80,7 @@
 							class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
 							<span><span class="badge bg-dark p-2">${status.count}</span>
 								${cs.content} -${cs.date}</span> <!-- 삭제 버튼 -->
-							<form action="/Subject02/remove" method="post">
+							<form action="/Subject02/board/remove" method="post">
 								<input type="hidden" name="id" value="${cs.id}" readonly>
 								<div>
 									<button class="btn btn-secondary" type="submit">X</button>
@@ -91,6 +91,10 @@
 				</ul>
 			</c:if>
 		</div>
+		
+		<form action="/Subject02/board/logout" method="post">
+			<button type="submit">로그아웃</button>
+		</form>
 	</div>
 </body>
 </html>
