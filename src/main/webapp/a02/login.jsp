@@ -73,11 +73,11 @@
 		<div class="container mt-3" style="width: 18rem;">
 			<form action="/Subject02/board/login" method="post">
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="Username"
+					<input type="text" class="form-control" placeholder="아이디"
 						aria-label="Username" aria-describedby="basic-addon1" name="uid" autocomplete="off">
 				</div>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="Password"
+					<input type="text" class="form-control" placeholder="비밀번호"
 						aria-label="Username" aria-describedby="basic-addon1" name="upw" autocomplete="off">
 				</div>
 				<button type="submit" class="btn btn-secondary">로그인</button>

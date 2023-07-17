@@ -71,7 +71,7 @@
 				method="post">
 				<input class="form-control me-2" type="search" placeholder="검색"
 					aria-label="Search" name="what" autocomplete="off">
-				<button class="btn btn-outline-secondary" type="submit">Search</button>
+				<button class="btn btn-outline-secondary" type="submit">📗</button>
 			</form>
 		</div>
 

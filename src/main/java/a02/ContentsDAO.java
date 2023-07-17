@@ -28,6 +28,7 @@ public class ContentsDAO {
 	public void insertOne(Contents n) throws Exception {
 		Connection conn = open();
 		String sql = "insert into contents(content, date, author) values(?, CURRENT_TIMESTAMP(), ?)";
+		//String sql = "insert into contents(content, date, author) values(?, FORMATDATETIME(now(), 'yyyy-MM-dd hh:mm:ss'), ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try {
 			pstmt.setString(1, n.getContent());
