@@ -24,11 +24,14 @@ public class ContentsMainController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		request.getRequestDispatcher("/a02/index.jsp").forward(request, response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		Contents contents = new Contents();
 		contents.setContent(request.getParameter("content"));
 		contents.setDate(LocalDateTime.now().toString());
