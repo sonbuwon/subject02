@@ -129,7 +129,7 @@
 		</div>
 
 		<c:if test="${not empty loginInfo}">
-			<div class="container d-flex justify-content-end">
+			<div class="container d-flex justify-content-end mb-3">
 				<form action="/Subject02/board/logout" method="post">
 					<button type="submit" class="btn btn-outline-secondary me-3">로그아웃</button>
 				</form>
