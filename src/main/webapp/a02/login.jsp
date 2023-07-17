@@ -35,10 +35,23 @@
 						href="/Subject02/board/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/board/list">요구사항 목록</a></li>
-					<li class="nav-item"><a class="nav-link active"
+					<c:if test="${empty loginInfo}">
+						<li class="nav-item"><a class="nav-link active"
 						href="/Subject02/board/login">로그인</a></li>
+					</c:if>
+					<!--
+					<c:if test="${not empty loginInfo}">
+						<li class="nav-item active"><a class="nav-link"
+						href="#">로그아웃</a></li>
+					</c:if>
+					-->
 				</ul>
-				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
+				<c:if test="${empty loginInfo}">
+					<span class="navbar-text me-3">본 홈페이지의 모든 활동은 로그인이 필요합니다. </span>
+				</c:if>
+				<c:if test="${not empty loginInfo}">
+					<span class="navbar-text me-3">${loginInfo.uname} 님 환영합니다.</span>
+				</c:if>
 			</div>
 		</div>
 	</nav>
@@ -61,11 +74,11 @@
 			<form action="/Subject02/board/login" method="post">
 				<div class="input-group mb-3">
 					<input type="text" class="form-control" placeholder="Username"
-						aria-label="Username" aria-describedby="basic-addon1" name="uid">
+						aria-label="Username" aria-describedby="basic-addon1" name="uid" autocomplete="off">
 				</div>
 				<div class="input-group mb-3">
 					<input type="text" class="form-control" placeholder="Password"
-						aria-label="Username" aria-describedby="basic-addon1" name="upw">
+						aria-label="Username" aria-describedby="basic-addon1" name="upw" autocomplete="off">
 				</div>
 				<button type="submit" class="btn btn-secondary">로그인</button>
 			</form>

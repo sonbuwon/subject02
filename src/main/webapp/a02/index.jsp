@@ -35,10 +35,22 @@
 						aria-current="page" href="/Subject02/board/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/board/list">요구사항 목록</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/board/login">로그인</a></li>
+					<c:if test="${empty loginInfo}">
+						<li class="nav-item"><a class="nav-link"
+							href="/Subject02/board/login">로그인</a></li>
+					</c:if>
+					<!--  
+					<c:if test="${not empty loginInfo}">
+						<li class="nav-item"><a class="nav-link" href="#">로그아웃</a></li>
+					</c:if>
+					-->
 				</ul>
-				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
+				<c:if test="${empty loginInfo}">
+					<span class="navbar-text me-3">본 홈페이지의 모든 활동은 로그인이 필요합니다. </span>
+				</c:if>
+				<c:if test="${not empty loginInfo}">
+					<span class="navbar-text me-3">${loginInfo.uname} 님 환영합니다.</span>
+				</c:if>
 			</div>
 		</div>
 	</nav>
@@ -56,15 +68,15 @@
 				</h3>
 			</c:if>
 		</div>
-		
-		<form action="/Subject02/main" method="post">
+
+		<form action="/Subject02/board/main" method="post">
 			<div class="form-floating">
 				<textarea class="form-control" placeholder="Leave a comment here"
 					id="floatingTextarea2" style="height: 300px" name="content"></textarea>
 				<label for="floatingTextarea2">Comments</label>
 			</div>
 			<div class="d-flex justify-content-end my-3">
-				<button type="submit" class="btn btn-secondary me-1">작성하기</button>
+				<button type="submit" class="btn btn-outline-secondary me-1">작성하기</button>
 			</div>
 		</form>
 	</div>

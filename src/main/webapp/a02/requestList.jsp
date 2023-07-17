@@ -36,10 +36,24 @@
 						href="/Subject02/board/main">홈</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						href="/Subject02/board/list">요구사항 목록</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/Subject02/board/login">로그인</a></li>
+					<c:if test="${empty loginInfo}">
+						<li class="nav-item"><a class="nav-link"
+							href="/Subject02/board/login">로그인</a></li>
+					</c:if>
+					<!--
+					<c:if test="${not empty loginInfo}">
+						<li class="nav-item">
+						<li class="nav-item"><a class="nav-link" href="#">로그아웃</a></li>
+						</li>
+					</c:if>
+					-->
 				</ul>
-				<span class="navbar-text">본 홈페이지 글 작성은 로그인이 필요합니다. </span>
+				<c:if test="${empty loginInfo}">
+					<span class="navbar-text me-3">본 홈페이지의 모든 활동은 로그인이 필요합니다. </span>
+				</c:if>
+				<c:if test="${not empty loginInfo}">
+					<span class="navbar-text me-3">${loginInfo.uname} 님 환영합니다.</span>
+				</c:if>
 			</div>
 		</div>
 	</nav>
@@ -53,7 +67,7 @@
 					<b>검색창</b>
 				</h3>
 			</div>
-			<form action="/Subject02/search" class="d-flex" role="search"
+			<form action="/Subject02/board/search" class="d-flex" role="search"
 				method="post">
 				<input class="form-control me-2" type="search" placeholder="검색"
 					aria-label="Search" name="what" autocomplete="off">
@@ -79,22 +93,26 @@
 						<li
 							class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
 							<span><span class="badge bg-dark p-2">${status.count}</span>
-								${cs.content} -${cs.date}</span> <!-- 삭제 버튼 -->
-							<form action="/Subject02/board/remove" method="post">
-								<input type="hidden" name="id" value="${cs.id}" readonly>
-								<div>
-									<button class="btn btn-secondary" type="submit">X</button>
-								</div>
-							</form>
+								${cs.content} -${cs.date}</span> <!-- 삭제 버튼 --> <c:if
+								test="${loginInfo.uname eq 'Admin'}">
+								<form action="/Subject02/board/remove" method="post">
+									<input type="hidden" name="id" value="${cs.id}" readonly>
+									<div>
+										<button class="btn btn-secondary" type="submit">X</button>
+									</div>
+								</form>
+							</c:if>
 						</li>
 					</c:forEach>
 				</ul>
 			</c:if>
 		</div>
-		
-		<form action="/Subject02/board/logout" method="post">
-			<button type="submit">로그아웃</button>
-		</form>
+
+		<div class="container d-flex justify-content-end">
+			<form action="/Subject02/board/logout" method="post">
+				<button type="submit" class="btn btn-outline-secondary me-3">로그아웃</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

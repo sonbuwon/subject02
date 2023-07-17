@@ -40,8 +40,12 @@ public class ContentsLoginController extends HttpServlet {
 			HttpSession session = request.getSession();
 
 			session.setAttribute("loginInfo", user);
-			response.sendRedirect("/Subject02/board/main");
-			session.setAttribute("loginInfo", null);
+			
+			if(session.getAttribute("loginInfo") != null) {
+				response.sendRedirect("/Subject02/board/main");
+			} else {
+				response.sendRedirect("/Subject02/board/login");
+			}			
 
 		} catch (Exception e) {
 			e.printStackTrace();
