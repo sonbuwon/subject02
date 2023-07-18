@@ -33,7 +33,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/board/main">홈</a></li>
+						href="/Subject02/board/main">요구사항 작성</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						href="/Subject02/board/list">요구사항 목록</a></li>
 					<c:if test="${empty loginInfo}">
@@ -86,6 +86,15 @@
 				</h3>
 			</div>
 		
+			<!-- 로그아웃창 -->
+			<c:if test="${not empty loginInfo}">
+				<div class="container d-flex justify-content-end mb-3">
+					<form action="/Subject02/board/logout" method="post">
+						<button type="submit" class="btn btn-outline-secondary me-3">로그아웃</button>
+					</form>
+				</div>
+			</c:if>
+		
 			<div class="d-flex justify-content-center mt-1">
 				<c:if test="${empty list}">
 					<h3>작성된 요구사항이 없습니다.</h3>
@@ -131,14 +140,6 @@
 				</ul>
 			</c:if>
 		</div>
-
-		<c:if test="${not empty loginInfo}">
-			<div class="container d-flex justify-content-end mb-3">
-				<form action="/Subject02/board/logout" method="post">
-					<button type="submit" class="btn btn-outline-secondary me-3">로그아웃</button>
-				</form>
-			</div>
-		</c:if>
 	</div>
 </body>
 </html>

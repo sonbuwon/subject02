@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/Subject02/board/main">홈</a></li>
+						href="/Subject02/board/main">요구사항 작성</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/Subject02/board/list">요구사항 목록</a></li>
 					<c:if test="${empty loginInfo}">
