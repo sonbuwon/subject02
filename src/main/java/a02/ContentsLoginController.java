@@ -29,8 +29,7 @@ public class ContentsLoginController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 로그인 관련 새로 작성
-		System.out.println("Login Post");
+		System.out.println("로그인 시도....");
 
 		String uid = request.getParameter("uid");
 		String upw = request.getParameter("upw");
@@ -46,7 +45,7 @@ public class ContentsLoginController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("로그인에 실패하셨습니다.");
-			response.sendRedirect("/Subject02/board/login?result=error");
+			response.sendRedirect("/Subject02/board/login?result=fail");
 		}
 	}
 }

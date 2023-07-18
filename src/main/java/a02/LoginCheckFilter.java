@@ -27,6 +27,8 @@ public class LoginCheckFilter extends HttpFilter implements Filter {
 		
 		HttpSession session = httpReq.getSession();
 		
+		System.out.println("접속 한 유저: " + session.getAttribute("loginInfo"));
+		
 		if(session.getAttribute("loginInfo") == null) {
 			httpResp.sendRedirect("/Subject02/board/login");
 			return;

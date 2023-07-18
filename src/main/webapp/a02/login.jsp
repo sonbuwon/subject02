@@ -39,6 +39,10 @@
 						<li class="nav-item"><a class="nav-link active"
 						href="/Subject02/board/login">로그인</a></li>
 					</c:if>
+					<c:if test="${loginInfo.uname eq 'Admin'}">
+						<li class="nav-item"><a class="nav-link"
+							href="/Subject02/manage/user">유저 관리</a></li>
+					</c:if>
 					<!--
 					<c:if test="${not empty loginInfo}">
 						<li class="nav-item active"><a class="nav-link"
@@ -59,7 +63,7 @@
 	<!-- Main -->
 	<div class="container">
 		<div>
-			<c:if test="${param.result=='error'}">
+			<c:if test="${param.result=='fail'}">
 				<h3>로그인 실패</h3>
 			</c:if>
 		</div>

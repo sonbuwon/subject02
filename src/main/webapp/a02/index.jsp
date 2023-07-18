@@ -39,6 +39,10 @@
 						<li class="nav-item"><a class="nav-link"
 							href="/Subject02/board/login">로그인</a></li>
 					</c:if>
+					<c:if test="${loginInfo.uname eq 'Admin'}">
+						<li class="nav-item"><a class="nav-link"
+							href="/Subject02/manage/user">유저 관리</a></li>
+					</c:if>
 					<!--  
 					<c:if test="${not empty loginInfo}">
 						<li class="nav-item"><a class="nav-link" href="#">로그아웃</a></li>
