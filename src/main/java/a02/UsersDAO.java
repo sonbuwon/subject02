@@ -44,7 +44,6 @@ public class UsersDAO {
 				user.setUpw(rs.getString("upw"));
 				user.setUname(rs.getString("uname"));
 			} else {
-				// 테이블에 없는 결과를 검색해도 쿼리문이 실행되서 억지로 막음
 				return null;
 			}
 			
