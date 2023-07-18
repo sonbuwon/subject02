@@ -68,6 +68,15 @@
 			</h3>
 		</div>
 		
+		<!-- 로그아웃 상태로 요구사항 목록을 클릭할경우 -->
+		<c:if test="${param.in == 'no'}">
+			<div class="d-flex justify-content-center">
+				<div class="alert alert-danger" role="alert">
+					요구사항 목록은 로그인 후 사용 가능합니다.
+				</div>
+			</div>
+		</c:if>
+		
 		<div class="container mt-3" style="width: 18rem;">
 			<form action="/Subject02/board/login" method="post">
 				<div class="input-group mb-3">

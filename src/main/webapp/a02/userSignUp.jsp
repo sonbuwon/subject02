@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -69,6 +69,14 @@
 				<b>회원가입</b>
 			</h3>
 		</div>
+		<!-- 중복 아이디가 있다면 -->
+		<c:if test="${param.error == 'on'}">
+			<div class="d-flex justify-content-center">
+				<div class="alert alert-danger" role="alert">
+					현재 존재하는 아이디입니다. 회원가입을 다시 진행해주세요.
+				</div>
+			</div>
+		</c:if>
 
 		<div class="container mt-3" style="width: 18rem;">
 			<form action="/Subject02/board/signup" method="post">

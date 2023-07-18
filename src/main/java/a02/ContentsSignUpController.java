@@ -1,6 +1,7 @@
 package a02;
 
 import java.io.IOException;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,11 +35,10 @@ public class ContentsSignUpController extends HttpServlet {
 		
 		try {
 			service.register(user);
+			response.sendRedirect("/Subject02/board/login");
 		} catch (Exception e) {
 			e.printStackTrace();
+			response.sendRedirect("/Subject02/board/signup?error=on");
 		}
-		System.out.println(user.getUname() + "님 회원가입 완료");
-		response.sendRedirect("/Subject02/board/login");
 	}
-
 }

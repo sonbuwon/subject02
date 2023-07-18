@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 public class UsersDAO {
 	final String JDBC_DRIVER = "org.h2.Driver";
 	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/bwdb";
@@ -60,21 +58,19 @@ public class UsersDAO {
 	}
 	
 	// 유저 추가
-	public void insertUser(Users us) throws Exception {
+	public void insertUser(Users us) throws Exception{
 		Connection conn = open();
+		
 		String sql = "insert into board_user(uid, upw, uname) values(?, ?, ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		try {
-			pstmt.setString(1, us.getUid());
-			pstmt.setString(2, us.getUpw());
-			pstmt.setString(3, us.getUname());
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pstmt.close();
-			conn.close();
-		}
+
+		pstmt.setString(1, us.getUid());
+		pstmt.setString(2, us.getUpw());
+		pstmt.setString(3, us.getUname());
+		pstmt.executeUpdate();
+
+		pstmt.close();
+		conn.close();
 	}
 	
 	// 유저 삭제
