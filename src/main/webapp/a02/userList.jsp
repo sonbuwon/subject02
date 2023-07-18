@@ -78,30 +78,28 @@
 		<c:if test="${not empty userlist}">
 			<ul class="list-group m-3">
 				<c:forEach var="us" items="${ userlist }" varStatus="status">
-					<li class="list-group-item list-group-item-action">
-						<div class="d-flex justify-content-center align-items-center">
-							<div class="badge bg-dark p-2">
-								<div>${status.count}</div>
+					<c:if test="${us.uname ne 'Admin'}">
+						<li class="list-group-item list-group-item-action">
+							<div class="d-flex justify-content-center align-items-center">
+								<div class="p-1 flex-fill">아이디: ${us.uid}</div>
+								<div class="p-1 flex-fill">패스워드: ${us.upw}</div>
+								<div class="p-1 flex-fill">닉네임: ${us.uname}</div>
+	
+								<div>
+									<!-- 삭제 버튼 -->
+									<!-- 아직 미구현 -->
+									<c:if test="${loginInfo.uname eq 'Admin'}">
+										<form action="/Subject02/manage/delete" method="post">
+											<input type="hidden" name="uid" value="${us.uid}" readonly>
+											<div>
+												<button class="btn btn-danger" type="submit">X</button>
+											</div>
+										</form>
+									</c:if>
+								</div>
 							</div>
-							<div class="p-1 flex-fill">아이디: ${us.uid}</div>
-							<div class="p-1 flex-fill">패스워드: ${us.upw}</div>
-							<div class="p-1 flex-fill">닉네임: ${us.uname}</div>
-
-							<div>
-								<!-- 삭제 버튼 -->
-								<!-- 아직 미구현 -->
-								<c:if test="${loginInfo.uname eq 'Admin'}">
-									<form action="/Subject02/board/remove" method="post">
-										<input type="hidden" name="id" value="${cs.id}" readonly>
-										<div>
-											<button class="btn btn-danger" type="submit">X</button>
-										</div>
-									</form>
-								</c:if>
-							</div>
-						</div>
-
-					</li>
+						</li>
+					</c:if>
 				</c:forEach>
 			</ul>
 		</c:if>

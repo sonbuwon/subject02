@@ -59,6 +59,22 @@ public class UsersDAO {
 		return user;
 	}
 	
+	// 유저 삭제
+	public void deleteUser(String uid) throws Exception {
+		Connection conn = open();
+		String sql = "delete from board_user where uid = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try {
+			pstmt.setString(1, uid);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pstmt.close();
+			conn.close();
+		}
+	}
+	
 	// 유저 전체 출력
 	public List<Users> getAll() throws Exception {
 		Connection conn = open();

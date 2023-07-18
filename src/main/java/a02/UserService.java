@@ -16,6 +16,11 @@ public class UserService {
 		return user;
 	}
 	
+	// 해당 유저 삭제
+	public void remove(String uid) throws Exception {
+		dao.deleteUser(uid);
+	}
+	
 	// 전체 유저 출력
 	public List<Users> userAll() throws Exception {
 		List<Users> uList = dao.getAll();
