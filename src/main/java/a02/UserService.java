@@ -16,6 +16,11 @@ public class UserService {
 		return user;
 	}
 	
+	// 회원가입 한 유저 추가
+	public void register(Users user) throws Exception {
+		dao.insertUser(user);
+	}
+	
 	// 해당 유저 삭제
 	public void remove(String uid) throws Exception {
 		dao.deleteUser(uid);

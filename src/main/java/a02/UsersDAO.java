@@ -59,6 +59,24 @@ public class UsersDAO {
 		return user;
 	}
 	
+	// 유저 추가
+	public void insertUser(Users us) throws Exception {
+		Connection conn = open();
+		String sql = "insert into board_user(uid, upw, uname) values(?, ?, ?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try {
+			pstmt.setString(1, us.getUid());
+			pstmt.setString(2, us.getUpw());
+			pstmt.setString(3, us.getUname());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pstmt.close();
+			conn.close();
+		}
+	}
+	
 	// 유저 삭제
 	public void deleteUser(String uid) throws Exception {
 		Connection conn = open();

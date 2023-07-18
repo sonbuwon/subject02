@@ -45,7 +45,6 @@ public class ContentsLoginController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("로그인에 실패하셨습니다.");
-			response.sendRedirect("/Subject02/board/login?result=fail");
 		}
 	}
 }
